@@ -5,54 +5,539 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Roots - Gen Green Movement</title>
   <link rel="icon" href="media/favicon.ico" />
+  <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body id="roots-body">
+  <style>
+    footer {
+  background-color: #2a7f62; /* 60% deep green */
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+footer .footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 15px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+footer .footer-container div,
+footer .footer-container a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+footer .footer-container a:hover {
+  text-decoration: underline;
+}
+footer .footer-container img {
+  width: 18px;
+  height: 18px;
+}
 
-<!-- Header with navigation -->
-<header id="roots-header">
+    /* Reset and base */
+    body {
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333333;
+    }
+
+    /* Header and nav */
+    header {
+      background-color: #2a7f62;
+      padding: 10px 20px;
+      color: white;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      flex: 1;
+    }
+    ul.nav-links {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      transition: text-decoration 0.3s ease;
+    }
+    ul.nav-links li a:hover {
+      text-decoration: underline;
+    }
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .search-container form {
+      display: flex;
+    }
+    .search-container input[type="text"] {
+      padding: 5px 10px;
+      border-radius: 4px 0 0 4px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+    .search-container button {
+      background-color: #f4a261;
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: url('HOMEPAGEPIC.jpg') no-repeat center center / cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      padding: 20px;
+      max-width: 800px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #2a7f62;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    .historyhead{
+      color: white;
+    }
+
+    /* Team Section */
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .team-photo {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .team-description {
+      flex: 1;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .team-description h2 {
+      color: #2a7f62;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    /* History Section */
+    .history-section {
+      display: flex;
+      gap: 20px;
+      background-color: #2a7f62;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+    .history-text {
+      flex: 1 1 400px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+    }
+    .history-text h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .history-image-container {
+      flex: 1 1 400px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 210 px;
+    }
+    .history-image {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .history-image-caption {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-top: 6px;
+      text-align: center;
+      font-style: italic;
+      width: 100%;
+      max-width: 400px;
+    }
+
+ .social-list li {
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+.social-list li button {
+  margin-left: 10px;
+  background-color: #2a7f62;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.social-list li button:hover {
+  background-color: #1f5f44;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-left, .info-right {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+.info-section {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
+
+.info-left,
+.info-right {
+  background-color: #e6f2e9;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 350px;
+  box-sizing: border-box;
+}
+
+.info-left em,
+.info-right em {
+  display: block;
+  font-style: italic;
+  color: #1f5f44;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.info-left p,
+.info-right p,
+.info-left ul,
+.info-right ul {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #2a7f62;
+}
+
+.info-left a,
+.info-right a {
+  color: #2a7f62;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-list {
+  list-style: disc inside;
+  padding-left: 20px;
+  font-weight: 600;
+}
+
+.info-list li {
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.social-list {
+  list-style: disc inside;
+  padding-left: 20px;
+  font-weight: 600;
+  color: #2a7f62;
+}
+
+.social-list li {
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.social-list li button {
+  margin-left: 10px;
+  background-color: #2a7f62;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.social-list li button:hover {
+  background-color: #1f5f44;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-left,
+  .info-right {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Adjust history section image and text alignment */
+.history-section {
+  display: flex;
+  gap: 20px;
+  background-color: #2a7f62;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  align-items: center; /* vertically center image and text */
+  flex-wrap: nowrap; /* prevent wrapping so image height matches text */
+}
+
+.history-text {
+  flex: 1 1 400px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.history-text h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: none; /* remove any background */
+}
+
+.history-image-container {
+  flex: 1 1 400px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 210 px;
+}
+
+.history-image {
+  width: 100%;
+  height: auto;
+  max-height: none; /* allow image to grow to match text height */
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.history-image-caption {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-top: 6px;
+  text-align: center;
+  font-style: italic;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Smaller font for references list except the heading */
+.references-section h2 {
+  font-size: 1.8rem; /* keep References heading larger */
+  color: #2a7f62;
+  margin-bottom: 24px;
+}
+
+.references-section ul {
+  font-size: 0.85rem; /* smaller font for list items */
+  color: #000000;
+  padding-left: 20px;
+  list-style: disc inside;
+}
+
+.references-section ul li {
+  margin-bottom: 10px;
+}
+.history-section {
+  display: flex;
+  gap: 20px;
+  background-color: #2a7f62;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  align-items: stretch; /* stretch children to equal height */
+  flex-wrap: nowrap;
+}
+
+.history-text {
+  flex: 1 1 50%;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.history-image-container {
+  flex: 1 1 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Make container height match text height */
+  height: 240 px;
+}
+
+.history-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.history-image-caption {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-top: 6px;
+  text-align: center;
+  font-style: italic;
+  width: 100%;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- This is the top part of the page where the logo and menu are -->
   <nav>
-    <div class="roots-logo">
+    <div class="logo">
+      <!-- Logo image that links back to homepage -->
       <a href="index.html">
-        <img src="LOGO.png" style="height:70px;" alt="Gen Green Logo" />
+        <img src="LOGO.png" style="height:70px;" alt="Gen Green Movement Logo" />
       </a>
     </div>
 
-    <!-- Navigation links -->
-    <ul class="roots-nav-links">
+    <ul class="nav-links">
+      <!-- Navigation links to different pages -->
       <li><a href="index.html">Home</a></li>
       <li><a href="roots.html">Our Roots</a></li>
       <li><a href="greenprint.html">Greenprint</a></li>
       <li><a href="support.html">Support Us</a></li>
     </ul>
 
-    <!-- Search form -->
-    <div class="roots-search-container">
+    <div class="search-container">
+      <!-- Search box so people can find stuff on the site -->
       <form action="/search" method="get">
         <input type="text" name="q" placeholder="Search..." />
-        <button type="submit">🔍</button>
+        <button type="submit" aria-label="Search">🔍</button>
       </form>
     </div>
   </nav>
 </header>
 
-<!-- Main content area -->
-<main id="roots-main">
+<main>
 
-  <!-- Hero section with background image and overlay -->
-  <section id="roots-hero-section" aria-label="Youth Rising for Climate Action">
-    <div class="roots-hero-overlay"></div>
-    <div class="roots-hero-content">
+  <!-- Hero Section -->
+  <section class="hero-section" aria-label="Youth Rising for Climate Action">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1>Youth Rising for Climate Action</h1>
       <p>The power to change the future is in the hands of the youth. Every action taken today builds a greener and more sustainable tomorrow.</p>
     </div>
   </section>
 
-  <!-- Page main heading -->
   <h1>Our Roots</h1>
 
-  <!-- Introductory paragraphs -->
   <p>
     The Gen Green Movement began as a personal vision of mine. My name is Matt V. Ticaro, a 14-year-old student from 9-Barium, Philippine Science High School – Southern Mindanao Campus. Growing up, I was always aware of how climate change and environmental destruction were affecting our country and planet. I believed that even the smallest actions could ripple into something bigger, and I wanted to prove that young people have the power to make a difference.  
   </p>
@@ -61,10 +546,10 @@
     At first, it was just me collecting small ideas, planting seedlings in my backyard, reducing plastic use at home, and encouraging my classmates to recycle. What started as quiet, individual steps grew into something bigger when I realized that many other students shared the same passion for the environment. Inspired by the stories of youth leaders around the world, I dreamed of creating a platform where Filipino students like me could stand together for climate action. That dream became the Gen Green Movement, a space where ideas, passion, and determination come together to protect our planet. This is only the beginning of my journey. I may still be 14, but I believe age is never a limit to making a difference, because every day is a chance to act, inspire, and prove that the future is in the hands of the youth.  
   </p>
 
-  <!-- The Creator section with photo and description -->
-  <section id="roots-team-section" aria-label="The Creator">
-    <img src="MYFACE.png" alt="Matt V. Ticaro" class="roots-team-photo" />
-    <div class="roots-team-description">
+  <!-- The Creator Section -->
+  <section class="team-section" aria-label="The Creator">
+    <img src="MYFACE.png" alt="Matt V. Ticaro" class="team-photo" />
+    <div class="team-description">
       <h2>The Creator</h2>
       <p>
         Hello! My name is Matt V. Ticaro, a 14-year-old student from 9-Barium, Philippine Science High School – Southern Mindanao Campus. I started the Gen Green Movement because I believe the youth can lead the fight against climate change. What began with small steps in my community has grown into a space where young people can come together to act, inspire, and create a sustainable future. 
@@ -72,103 +557,161 @@
     </div>
   </section>
 
-  <!-- History section with text and image side by side -->
-  <section id="roots-history-section" aria-label="History of Gen Green Movement">
-    <div class="roots-history-text">
-      <h2>History</h2>
+  <!-- History Section -->
+  <section class="history-section" aria-label="History of Gen Green Movement">
+    <div class="history-text">
+      <h2 class="historyhead">History</h2>
       <p>
         The Gen Green Movement was founded in 2023 as a response to the urgent climate challenges facing the Philippines. Starting from a small group of passionate youth, it has grown into a nationwide platform empowering students to take meaningful climate action. The movement emphasizes education, community engagement, and sustainable practices to build a greener future.
       </p>
     </div>
-    <img src="HISTORYPIC.jpg" alt="Youth planting trees representing the history of Gen Green Movement" class="roots-history-image" />
+    <div class="history-image-container">
+      <img src="HISTORYPIC.jpg" alt="Youth planting trees representing the history of Gen Green Movement" class="history-image" />
+      <p class="history-image-caption">Photo by Today's Parent, June 2024</p>
+    </div>
   </section>
 
-  <!-- More Information section with contact and social media -->
-  <section id="roots-info-section" aria-label="More Information">
-    <div class="roots-info-left">
-      <h2>For More Information:</h2>
-
+  <!-- For More Information Section -->
+  <h2 class="info-title">For More Information:</h2>
+  <section class="info-section" aria-label="More Information">
+    <div class="info-left">
       <em>Location:</em>
       <p>
-        <a href="https://goo.gl/maps/4XxXxXxXxXx" target="_blank" rel="noopener noreferrer" class="roots-link">
+        <a href="https://goo.gl/maps/4XxXxXxXxXx" target="_blank" rel="noopener noreferrer" style="color:#2a7f62; text-decoration: underline; cursor: pointer;">
           21 Greenway Blvd, Eco City, Philippines
         </a>
       </p>
-
       <em>Contact Details:</em>
-      <ul class="roots-info-list">
+      <ul class="info-list">
         <li>Email: contact@gengreenmovement.org</li>
         <li>Phone Number: 0912-327-6686</li>
       </ul>
     </div>
-
-    <div class="roots-info-right">
+    <div class="info-right">
       <em>Social Media:</em>
-      <ul class="roots-info-list" style="margin-bottom: 10px;">
-        <!-- Social media list with buttons next to each -->
+      <ul class="social-list">
         <li>
-          Facebook: <button type="button" onclick="window.location.href='https://www.facebook.com/gengreenmovement'">Button</button>
+          Facebook: <button type="button" onclick="window.location.href='https://www.facebook.com/matt.ticaro.2024'">Button</button>
         </li>
         <li>
-          Twitter: <button type="button" onclick="window.location.href='https://twitter.com/gengreenph'">Button</button>
+          Twitter: <button type="button" onclick="window.location.href='https://x.com/MattTicaro87764'">Button</button>
         </li>
         <li>
-          Instagram: <button type="button" onclick="window.location.href='https://instagram.com/gengreenph'">Button</button>
+          Instagram: <button type="button" onclick="window.location.href='https://www.instagram.com/mattymat2010/'">Button</button>
         </li>
         <li>
-          TikTok: <button type="button" onclick="window.location.href='https://www.tiktok.com/@gengreenph'">Button</button>
+          TikTok: <button type="button" onclick="window.location.href='https://www.tiktok.com/@mattplayz46'">Button</button>
         </li>
         <li>
-          YouTube: <button type="button" onclick="window.location.href='https://www.youtube.com/channel/gengreen'">Button</button>
+          YouTube: <button type="button" onclick="window.location.href='https://www.youtube.com/channel/UCPtgDlojuxeCaXqglFaKcTA'">Button</button>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- Recommended Resources section -->
-  <section id="roots-related-links" aria-label="Recommended Resources">
+  <!-- Recommended Resources -->
+  <section class="related-links" aria-label="Recommended Resources">
     <h2>Recommended Resources</h2>
     <ul>
-      <li><a href="https://www.un.org/sustainabledevelopment/climate-change/" target="_blank" rel="noopener noreferrer" class="roots-link">United Nations SDG 13: Climate Action</a></li>
-      <li><a href="https://www.350.org/" target="_blank" rel="noopener noreferrer" class="roots-link">350.org - Global Climate Movement</a></li>
-      <li><a href="https://www.greenpeace.org/international/" target="_blank" rel="noopener noreferrer" class="roots-link">Greenpeace International</a></li>
-      <li><a href="https://fridaysforfuture.org/#:~:text=We%20are%20joining%20fellow%20@Fridays4future,%23URGENTE%20%F0%9F%9A%A8" target="_blank" rel="noopener noreferrer" class="roots-link">Youth Climate Movement</a></li>
+      <li><a href="https://www.un.org/sustainabledevelopment/climate-change/" target="_blank" rel="noopener noreferrer">United Nations SDG 13: Climate Action</a></li>
+      <li><a href="https://www.350.org/" target="_blank" rel="noopener noreferrer">350.org - Global Climate Movement</a></li>
+      <li><a href="https://www.greenpeace.org/international/" target="_blank" rel="noopener noreferrer">Greenpeace International</a></li>
+      <li><a href="https://fridaysforfuture.org/#:~:text=We%20are%20joining%20fellow%20@Fridays4future,%23URGENTE%20%F0%9F%9A%A8" target="_blank" rel="noopener noreferrer">Youth Climate Movement</a></li>
     </ul>
   </section>
 
-  <!-- References section showing sources used -->
-  <section id="roots-references-section" aria-label="References">
+  <!-- References Section -->
+  <section class="references-section" aria-label="References">
     <h2>References</h2>
     <ul>
       <li>
         2030 Youth Force Philippines | UN SDG Action Awards. (2022, March 4). UN SDG Action Awards. 
-        <a href="https://sdgactionawards.org/2030-youth-force-philippines/" target="_blank" rel="noopener noreferrer" class="roots-link">
+        <a href="https://sdgactionawards.org/2030-youth-force-philippines/" target="_blank" rel="noopener noreferrer">
           https://sdgactionawards.org/2030-youth-force-philippines/
         </a>
       </li>
       <li>
-        Forest Watch. (2024). Philippines Deforestation Rates & Statistics | GFW. Global Forest Watch. 
-        <a href="https://www.globalforestwatch.org/dashboards/country/PHL/" target="_blank" rel="noopener noreferrer" class="roots-link">
+        Forest Watch. (2024). Philippines Deforestation Rates & Statistics. Global Forest Watch. Retrieved June 2024, from 
+        <a href="https://www.globalforestwatch.org/dashboards/country/PHL/" target="_blank" rel="noopener noreferrer">
           https://www.globalforestwatch.org/dashboards/country/PHL/
         </a>
       </li>
       <li>
-        Friedman, L. (2019, July 12). Youth climate summit starts today. It’s full of young activists trained in the anti-Trump movement. 
-        <i>The Washington Post</i>. 
-        <a href="https://www.washingtonpost.com/politics/2019/07/12/youth-climate-summit-starts-today-its-full-young-activists-trained-anti-trump-movement/" target="_blank" rel="noopener noreferrer" class="roots-link">
+        Friedman, L. (2019, July 12). Youth climate summit starts today. It’s full of young activists trained in the anti-Trump movement. The Washington Post. 
+        <a href="https://www.washingtonpost.com/politics/2019/07/12/youth-climate-summit-starts-today-its-full-young-activists-trained-anti-trump-movement/" target="_blank" rel="noopener noreferrer">
           https://www.washingtonpost.com/politics/2019/07/12/youth-climate-summit-starts-today-its-full-young-activists-trained-anti-trump-movement/
         </a>
       </li>
       <li>
         Salas, E. (2025, July 7). Topic: Global climate change. Statista. 
-        <a href="https://www.statista.com/topics/1148/global-climate-change/#topicOverview" target="_blank" rel="noopener noreferrer" class="roots-link">
+        <a href="https://www.statista.com/topics/1148/global-climate-change/#topicOverview" target="_blank" rel="noopener noreferrer">
           https://www.statista.com/topics/1148/global-climate-change/#topicOverview
         </a>
       </li>
       <li>
         The World Bank. (2022, November 9). Philippines Country Climate and Development Report. World Bank. 
-        <a href="https://www.worldbank.org/en/country/philippines/publication/philippines-country-climate-and-development-report" target="_blank" rel="noopener noreferrer" class="roots-link">
+        <a href="https://www.worldbank.org/en/country/philippines/publication/philippines-country-climate-and-development-report" target="_blank" rel="noopener noreferrer">
           https://www.worldbank.org/en/country/philippines/publication/philippines-country-climate-and-development-report
+        </a>
+      </li>
+      <li>
+        Young people in the Philippines are leading the fight against climate change. (2023, November 19). UNICEF Philippines. 
+        <a href="https://www.unicef.org/philippines/press-releases/young-people-philippines-are-leading-fight-against-climate-change" target="_blank" rel="noopener noreferrer">
+          https://www.unicef.org/philippines/press-releases/young-people-philippines-are-leading-fight-against-climate-change
+        </a>
+      </li>
+      <li>
+        Youth Drives Climate Action through Digital Innovation. (2024). Climate.gov.ph. 
+        <a href="https://climate.gov.ph/news/911" target="_blank" rel="noopener noreferrer">
+          https://climate.gov.ph/news/911
+        </a>
+      </li>
+      <li>
+        National Geographic. (2023). Deforestation. 
+        <a href="https://www.nationalgeographic.com/environment/article/deforestation" target="_blank" rel="noopener noreferrer">
+          https://www.nationalgeographic.com/environment/article/deforestation
+        </a>
+      </li>
+      <li>
+        International Energy Agency (IEA). (2023). Renewables 2023. 
+        <a href="https://www.iea.org/reports/renewables-2023" target="_blank" rel="noopener noreferrer">
+          https://www.iea.org/reports/renewables-2023
+        </a>
+      </li>
+      <li>
+        United Nations. (2024). Youth and Climate Change. 
+        <a href="https://www.un.org/en/climatechange/youth" target="_blank" rel="noopener noreferrer">
+          https://www.un.org/en/climatechange/youth
+        </a>
+      </li>
+      <li>
+        Rappler. (2019). IN PHOTOS: Filipino youth call for urgent action as global climate strike begins.
+        <a href="https://www.rappler.com/moveph/240650-photos-filipino-youth-call-urgent-action-global-climate-strike/" target="_blank" rel="noopener noreferrer">
+          https://www.rappler.com/moveph/240650-photos-filipino-youth-call-urgent-action-global-climate-strike/
+        </a>
+      </li>
+      <li>
+        Atlas of the Future. (n.d.). Youth Advocates for Climate Action Philippines.
+        <a href="https://atlasofthefuture.org/project/youth-advocates-for-climate-action-philippines/" target="_blank" rel="noopener noreferrer">
+          https://atlasofthefuture.org/project/youth-advocates-for-climate-action-philippines/
+        </a>
+      </li>
+      <li>
+        Living Laudato Si’. (n.d.). IN PHOTOS: Filipino youth rally for climate justice.
+        <a href="https://livinglaudatosi.org.ph/in-photos-filipino-youth-rally-for-climate-justice/" target="_blank" rel="noopener noreferrer">
+          https://livinglaudatosi.org.ph/in-photos-filipino-youth-rally-for-climate-justice/
+        </a>
+      </li>
+      <li>
+        Youth Advocates for Climate Action Philippines. (n.d.). YACAP.
+        <a href="https://yacap.org" target="_blank" rel="noopener noreferrer">
+          https://yacap.org
+        </a>
+      </li>
+      <li>
+        Taylor, K. (2024, June). Why getting kids outdoors is so important for fighting climate change. Today's Parent. 
+        <a href="https://www.todaysparent.com/sponsored/lets-talk-science-kids-outdoors-climate/" target="_blank" rel="noopener noreferrer">
+          https://www.todaysparent.com/sponsored/lets-talk-science-kids-outdoors-climate/
         </a>
       </li>
     </ul>
@@ -176,13 +719,21 @@
 
 </main>
 
-<!-- Footer with contact info and social links -->
-<footer id="roots-footer">
-  <div class="roots-footer-container">
+<footer>
+  <!-- Footer container for layout with the copyright text and contact links -->
+  <div class="footer-container">
     <div>© 2025 Gen Green Movement</div>
-    <a href="https://www.facebook.com/gengreenmovement" target="_blank" rel="noopener" aria-label="Facebook" class="roots-link">Facebook</a>
-    <a href="mailto:contact@gengreenmovement.org" aria-label="Email" class="roots-link">contact@gengreenmovement.org</a>
-    <a href="tel:+09123276686" aria-label="Phone" class="roots-link">0912-327-6686</a>
+    <a
+      href="https://www.facebook.com/gengreenmovement"
+      target="_blank"
+      rel="noopener"
+      aria-label="Facebook"
+      >Facebook</a
+    >
+    <a href="mailto:contact@gengreenmovement.org" aria-label="Email"
+      >contact@gengreenmovement.org</a
+    >
+    <a href="tel:+15551234567" aria-label="Phone">0912-327-6686</a>
   </div>
 </footer>
 
