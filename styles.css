@@ -256,6 +256,7 @@ footer .footer-container img {
   border-radius: 8px;
   object-fit: cover;
   display: block;
+  height: 100px;
 }
 .image-item p {
   margin-top: 5px;
@@ -536,4 +537,5 @@ section.call-to-action {
   object-fit: cover; 
   box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Shadow */
 }
+
 
